@@ -1,0 +1,61 @@
+.notice-list {
+    margin-bottom: 30px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #CDCDCD;
+}
+
+.notice-box {
+    background-color: white;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 0 0 1px #ddd;
+    -moz-box-shadow: 0 0 0 1px #ddd;
+    box-shadow: 0 0 0 1px #ddd;
+    overflow: hidden;
+    padding: 14px;
+    border-bottom: 2px solid #e2e2e9;
+    word-break: break-all
+}
+
+.notice-box header {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #DDD;
+    font-weight: bold;
+    font-size: 20px
+}
+
+.notice-box footer {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #DDD
+}
+
+.notice-box img {
+    max-width: 100%
+}
+
+.notice-avatar {
+    float: left;
+    margin-left: 1px;
+    margin-right: 8px
+}
+
+.notice-list-content{
+    margin-left: 65px
+}
+
+.notice-date{
+    top: 20px; left: -50px; width: 48px; height: 60px; color: white;
+}
+.notice-day, .notice-month{
+    background: rgb(0,151,226); text-align: center;
+}
+.notice-day{
+    height: 30px; line-height: 30px; font-size: 20px; font-weight: bold;color: white;
+}
+.notice-month{
+    height: 18px; line-height: 10px; font-size: 12px;color: white;
+}

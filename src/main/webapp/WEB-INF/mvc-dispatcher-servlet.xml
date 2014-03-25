@@ -1,0 +1,40 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+    <context:component-scan base-package="tips4scut" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
+    <mvc:annotation-driven />
+    <!-- <mvc:default-servlet-handler/> -->
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+    <mvc:resources mapping="/error/**" location="/error/" />
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <bean id="reportTimerTask" class="tips4scut.quartz.RunJob "></bean>
+    <!--配置定时器的内容-->
+    <bean id="scheduleReportTask" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+        <property name="timerTask" ref="reportTimerTask"></property>
+        <property name="period"><value>120000</value></property>
+        <property name="delay"><value>1000</value></property>
+    </bean>
+    <!--配置定时器在核实启动-->
+    <bean id="scheduleReportFactory" class="org.springframework.scheduling.timer.TimerFactoryBean"  lazy-init="false">
+        <property name="scheduledTimerTasks">
+            <list><ref bean="scheduleReportTask" /></list>
+        </property>
+    </bean>
+</beans>

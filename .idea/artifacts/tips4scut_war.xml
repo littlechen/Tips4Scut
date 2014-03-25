@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="tips4scut:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="tips4scut.war">
+      <element id="artifact" artifact-name="tips4scut:war exploded" />
+    </root>
+  </artifact>
+</component>
